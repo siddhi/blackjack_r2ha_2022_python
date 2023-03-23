@@ -1,0 +1,68 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "blackjack-r2ha-2022-python"
+description = 'Refactoring to Hexagonal Architecture - Blackjack (Python version)'
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Siddharta Govindaraj", email = "siddharta@silverstripesoftware.in" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+dynamic = ["version"]
+
+[project.urls]
+Documentation = "https://github.com/unknown/blackjack-r2ha-2022-python#readme"
+Issues = "https://github.com/unknown/blackjack-r2ha-2022-python/issues"
+Source = "https://github.com/unknown/blackjack-r2ha-2022-python"
+
+[tool.hatch.version]
+path = "blackjack_r2ha_2022_python/__about__.py"
+
+[tool.hatch.envs.default]
+dependencies = [
+  "pytest",
+  "pytest-cov",
+  "pytest-watcher",
+  "black",
+  "ruff"
+]
+[tool.hatch.envs.default.scripts]
+app = "python -m blackjack_r2ha_2022_python"
+test = "pytest"
+watch = "ptw . {args}"
+cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=blackjack_r2ha_2022_python --cov=tests {args}"
+format = "black {args}"
+lint = "ruff check {args}"
+
+[[tool.hatch.envs.test.matrix]]
+python = ["39", "310", "311"]
+
+[tool.coverage.run]
+branch = true
+parallel = true
+omit = [
+  "blackjack_r2ha_2022_python/__about__.py",
+  "blackjack_r2ha_2022_python/__main__.py",
+  "tests/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
