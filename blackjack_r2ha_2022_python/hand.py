@@ -22,14 +22,14 @@ class Hand:
         return hand_value
 
     def display_face_up_card(self):
-        return self.cards[0].display()
+        return Card.display(self.cards[0])
 
     @property
     def dealer_must_draw_card(self):
         return self.value <= 16
 
     def display(self):
-        print(str(Ansi().cursor_up(6).cursor_right(1)).join(card.display() for card in self.cards) + str(Ansi().fg(Colour.BLACK)))
+        print(str(Ansi().cursor_up(6).cursor_right(1)).join(Card.display(card) for card in self.cards) + str(Ansi().fg(Colour.BLACK)))
 
     def draw_from(self, deck: Deck):
         self.cards.append(deck.draw())

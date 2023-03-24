@@ -19,11 +19,12 @@ class Card:
     def get_suit(self):
         return self.suit
 
-    def display(self):
-        d = str(self.get_rank().display)  
-        p = "" if self.get_rank() == Rank.TEN else " "
-        s = self.get_suit().symbol
-        card_colour = Colour.RED if self.get_suit().is_red else Colour.BLACK
+    @staticmethod
+    def display(card):
+        d = str(card.get_rank().display)  
+        p = "" if card.get_rank() == Rank.TEN else " "
+        s = card.get_suit().symbol
+        card_colour = Colour.RED if card.get_suit().is_red else Colour.BLACK
         lines = [
             "┌─────────┐",
             f"│{d}{p}       │",

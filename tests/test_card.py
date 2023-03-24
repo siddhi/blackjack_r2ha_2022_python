@@ -29,5 +29,5 @@ def test_suit_of_hearts_or_diamonds_is_displayed_in_red():
 
     ansi_red_string = str(Ansi().fg(Colour.RED))
 
-    assert ansi_red_string in hearts_card.display()
-    assert ansi_red_string in diamonds_card.display()
+    assert ansi_red_string in Card.display(hearts_card)
+    assert ansi_red_string in Card.display(diamonds_card)
