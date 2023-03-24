@@ -1,8 +1,9 @@
 from .rank import Rank
 from .ansi import Ansi, Colour
 
+
 def display_card(card):
-    d = str(card.rank.display)  
+    d = str(card.rank.display)
     p = "" if card.rank == Rank.TEN else " "
     s = card.suit.symbol
     card_colour = Colour.RED if card.suit.is_red() else Colour.BLACK

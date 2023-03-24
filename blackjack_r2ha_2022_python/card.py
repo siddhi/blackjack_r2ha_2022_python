@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 from .suit import Suit
 from .rank import Rank
-from .ansi import Ansi, Colour
 
 
 @dataclass(frozen=True)

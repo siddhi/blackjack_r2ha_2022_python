@@ -30,7 +30,12 @@ class Hand:
         return self.value <= 16
 
     def display(self):
-        print(str(Ansi().cursor_up(6).cursor_right(1)).join(display_card(card) for card in self.cards) + str(Ansi().fg(Colour.BLACK)))
+        print(
+            str(Ansi().cursor_up(6).cursor_right(1)).join(
+                display_card(card) for card in self.cards
+            )
+            + str(Ansi().fg(Colour.BLACK))
+        )
 
     def draw_from(self, deck: Deck):
         self.cards.append(deck.draw())
