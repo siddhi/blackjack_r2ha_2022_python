@@ -2,6 +2,7 @@ from blackjack_r2ha_2022_python.card import Card
 from blackjack_r2ha_2022_python.suit import Suit
 from blackjack_r2ha_2022_python.rank import Rank
 from blackjack_r2ha_2022_python.ansi import Ansi, Colour
+from blackjack_r2ha_2022_python.console import display_card
 
 
 DUMMY_SUIT = Suit.HEARTS
@@ -29,5 +30,5 @@ def test_suit_of_hearts_or_diamonds_is_displayed_in_red():
 
     ansi_red_string = str(Ansi().fg(Colour.RED))
 
-    assert ansi_red_string in Card.display(hearts_card)
-    assert ansi_red_string in Card.display(diamonds_card)
+    assert ansi_red_string in display_card(hearts_card)
+    assert ansi_red_string in display_card(diamonds_card)

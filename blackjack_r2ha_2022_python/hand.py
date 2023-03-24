@@ -2,6 +2,7 @@ from typing import Iterable, Optional
 from .card import Card
 from .deck import Deck
 from .ansi import Ansi, Colour
+from .console import display_card
 
 
 class Hand:
@@ -22,14 +23,14 @@ class Hand:
         return hand_value
 
     def display_face_up_card(self):
-        return Card.display(self.cards[0])
+        return display_card(self.cards[0])
 
     @property
     def dealer_must_draw_card(self):
         return self.value <= 16
 
     def display(self):
-        print(str(Ansi().cursor_up(6).cursor_right(1)).join(Card.display(card) for card in self.cards) + str(Ansi().fg(Colour.BLACK)))
+        print(str(Ansi().cursor_up(6).cursor_right(1)).join(display_card(card) for card in self.cards) + str(Ansi().fg(Colour.BLACK)))
 
     def draw_from(self, deck: Deck):
         self.cards.append(deck.draw())
