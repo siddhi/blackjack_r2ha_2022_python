@@ -13,11 +13,17 @@ class Card:
     def rank_value(self):
         return self.rank.points
 
+    def get_rank(self):
+        return self.rank
+
+    def get_suit(self):
+        return self.suit
+
     def display(self):
-        d = str(self.rank.display)
-        p = "" if self.rank == Rank.TEN else " "
-        s = self.suit.symbol
-        card_colour = Colour.RED if self.suit.is_red else Colour.BLACK
+        d = str(self.get_rank().display)  
+        p = "" if self.get_rank() == Rank.TEN else " "
+        s = self.get_suit().symbol
+        card_colour = Colour.RED if self.get_suit().is_red else Colour.BLACK
         lines = [
             "┌─────────┐",
             f"│{d}{p}       │",
