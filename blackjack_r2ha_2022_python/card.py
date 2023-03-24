@@ -12,10 +12,3 @@ class Card:
     @property
     def rank_value(self):
         return self.rank.points
-
-    def get_rank(self):
-        return self.rank
-
-    def get_suit(self):
-        return self.suit
-

@@ -11,6 +11,5 @@ class Suit(Enum):
     def symbol(self):
         return self.value[0]
 
-    @property
     def is_red(self):
         return self.value[1]
